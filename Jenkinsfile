@@ -15,6 +15,11 @@ pipeline {
                 url: 'https://github.com/kserge2001/geo.git'
             }
         }
+        stage('sona scan'){
+            steps{
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geo'
+            }
+        }
         stage('Code Build') {
             steps {
                 sh 'mvn clean install package'
