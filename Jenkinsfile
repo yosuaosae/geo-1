@@ -17,7 +17,10 @@ pipeline {
         }
         stage('sona scan'){
             steps{
-                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geo'
+                withSonarQubeEnv('SonarServer') {  
+        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geo'
+                }
+                
             }
         }
         stage('Code Build') {
