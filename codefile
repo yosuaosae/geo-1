@@ -1,0 +1,17 @@
+pipepline {
+    agent any
+
+    stages{
+        stage('clean  old artifact'){
+            steps{
+                sh 'mvn clean'
+            }
+        }
+        stage('maven install and package'){
+            steps{
+                sh 'mvn install '
+                sh 'mvn package'
+            }
+        }
+    }
+}
