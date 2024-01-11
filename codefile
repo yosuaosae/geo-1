@@ -4,7 +4,7 @@ pipeline {
   maven 'M2_HOME'
 }
     stages{
-        stage(' clean old  artifacts '){
+        stage('clean old  artifacts '){
             steps{
                 sh 'mvn clean'
             }
