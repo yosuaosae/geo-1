@@ -2,7 +2,7 @@ pipepline {
     agent any
 
     stages{
-        stage('clean  old artifact'){
+        stage('clean  old artifacts'){
             steps{
                 sh 'mvn clean'
             }
