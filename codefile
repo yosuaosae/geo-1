@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tool name: 'M2_HOME', type: 'maven'
     stages{
         stage(' clean old  artifacts '){
             steps{
