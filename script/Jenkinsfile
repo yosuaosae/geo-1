@@ -46,6 +46,8 @@ pipeline{
     stage('Image tagging'){
         steps{
             sh 'docker tag utc-app-dev:v.${BUILD_ID} \
+            076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
+            sh 'docker tag utc-app-dev:latest \
             076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
 
         }
