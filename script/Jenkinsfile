@@ -52,8 +52,10 @@ pipeline{
         }
     }
     stage('push image'){
+        steps{  
         sh 'docker push 076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
         sh 'docker push 076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
+    }
     }
   
    } 
