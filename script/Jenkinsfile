@@ -37,7 +37,26 @@ pipeline{
             076892551558.dkr.ecr.us-east-1.amazonaws.com'
         }
     }
-   }
+    stage('docker image build'){
+        steps{
+            sh 'docker build -t utc-app-dev:v.${BUILD_ID} .'
+        }
+    }
+    stage('Image tagging'){
+        steps{
+            sh 'docker tag utc-app-dev:latest \
+            076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
+            sh 'docker tag utc-app-dev:latest \
+            076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
+
+        }
+    }
+    stage('push image'){
+        sh 'docker push 076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
+        sh 'docker push 076892551558.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
+    }
+  
+   } 
   
 }
 
