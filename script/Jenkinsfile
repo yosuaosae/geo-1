@@ -5,7 +5,10 @@ pipeline {
     }
     stages {
         stage('sonar-scan'){
-           sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=yosuaosae_geo-1'
+            steps{
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=yosuaosae_geo-1'
+            }
+           
         }
         stage('maven') {
             steps {
